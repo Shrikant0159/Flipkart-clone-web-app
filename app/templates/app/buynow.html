@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+Product Buy Now<br>
+{% comment %} 
+<img src="{{product.product_image.url}}" alt="">
+
+<h1>{{product.brand}}</h1>
+
+ {% endcomment %}
+
+<main class="container mt-4">
+    <div class="row">
+      {% for i in v %}
+      <a href="{% url 'product-detail' i.id %}">
+        <div class="col-md-4">
+          <div class="card mb-3">
+          <a href="{% url 'product-detail' i.id %}">
+            <img src="{{i.product_image.url}}" class="card-img-top" alt="Item 2">
+          </a>
+            <div class="card-body">
+              <h1>{{i.brand}}</h1>
+              <h2>{{i.title}}</h2>
+              <h4>Rs.{{i.discounted_price}} <small class="fw-light text-decoration-line-through">{{i.selling_price}}</small></h4>
+              <a href="{% url 'add_to_cart' i.id %}" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+       {% endfor %}
+
+
+{% endblock main-content %}

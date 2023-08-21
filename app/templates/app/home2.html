@@ -1,0 +1,260 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!--Owl Carousel CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/decorate.css' %}">
+    <title> | {% block title %} WE Shopping{% endblock title %} </title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+   <div class="container">
+     <a class="navbar-brand" href="/">OurChart</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="/">Home</a>
+         </li>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Electronics
+           </a>
+           <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
+             <li><a class="dropdown-item" href="{% url 'mobile' %}">Mobile</a></li>
+             <li><a class="dropdown-item" href="#">Laptop</a></li>
+           </ul>
+         </li>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle text-white" href="#" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Fashion
+           </a>
+           <ul class="dropdown-menu" aria-labelledby="fashionDropdown">
+             <li><a class="dropdown-item" href="#">Top Wear</a></li>
+             <li><a class="dropdown-item" href="#">Bottom Wear</a></li>
+           </ul>
+         </li>
+       </ul>
+       <form class="d-flex">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-warning" type="submit">S</button>
+       </form>
+       <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{current_user}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'changepassword' %}">Change Password</a></li>
+              <li><a class="dropdown-item" href="{% url 'log_out' %}">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-2">
+           <a href="{% url 'add-to-cart' %}" class="nav-link text-white"><span class="badge bg-danger">4</span> Cart </a>
+          </li>
+          <li class="nav-item mx-2">
+           <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+          </li>
+          <li class="nav-item mx-2">
+           <a href="{% url 'customerregistration' %}" class="nav-link text-white">Registration</a>
+          </li>
+        </ul>
+       </div>
+     </div>
+   </div>
+  </nav>
+  <div class="container" style='width:100vw;, border:1px solid red;'>
+    <div class="row" height="40">
+      <div class="row" class="shadowed" >
+        <div class="col" style="white-space: nowrap;">
+          <figure> 
+            <a href="best_deals" class="my-link" ><center><img src="{% static 'app/images/manu logos/offers.webp' %}" width="40px" alt="Grocery Market"></center><figcaption class="hover-effect">Best Deal</figcaption></a>
+          </figure>
+        </div>
+        <div class="col" style="white-space: nowrap;" >
+          <figure>
+          <a href="{% url 'beauty' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/beauty.webp' %}" width="40px" alt="Item 2"></center><figcaption class="hover-effect">Beauty Product</figcaption></a>
+        </figure>
+        </div>
+        <div class="col" style="white-space: nowrap;">
+          <figure>
+          <a href="{% url 'home_decorator' %}" class="my-link"><center><img src="{% static 'app/images/manu logos/decorator.webp' %}" width="40px" alt="Item 3"></center><figcaption class="hover-effect">Home Decorator</figcaption></a>
+        </div>
+        <div class="col" style="white-space: nowrap;">
+          <a href="{% url 'elctronics' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/electronics.webp' %}" width="40px" alt="Item 4"></center><figcaption class="hover-effect">Electronics</figcaption></a>
+        </div>
+        <div class="col" style="white-space: nowrap;">
+          <a href="{% url 'fashion' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/fasion.webp' %}" width="40px" alt="Item 5"></center><figcaption class="hover-effect">Fashion</figcaption></a>
+        </div>
+        <div class="col">
+          <a href="https://www.skyscanner.co.in/" class="my-link" ><center><img src="{% static 'app/images/manu logos/flight.webp' %}" width="40px" alt="Item 6"></center><figcaption class="hover-effect">Flight</figcaption ></a>
+        </div>
+        <div class="col">
+          <a href="{% url 'applinces' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/tv.webp' %}" width="40px" alt="Item 7"></center><figcaption class="hover-effect">Applinces</figcaption></a>
+        </div>
+        <div class="col">
+          <a href="{% url 'furniture' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/furniture.webp' %}" width="40px" alt="Item 8"></center><figcaption class="hover-effect">Furniture</figcaption></a>
+        </div>
+        <div class="col">
+          <a href="{% url 'mobile' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/mobile.webp' %}" width="40px" alt="Item 9"></center><figcaption class="hover-effect">Mobile</figcaption></a>
+        </div>
+        <div class="col">
+          <a href="{% url 'grocery' %}" class="my-link" ><center><img src="{% static 'app/images/manu logos/grocery.webp' %}" width="40px" alt="Item 10"></center><figcaption class="hover-effect">Grocery</figcaption></a>
+        </div>
+    </div>
+    </div>
+  </div>
+  <!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="..."> 
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  <!-- End Banner Slider -->
+  <!-- Live Sale Section -->
+<div class="container">
+    <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+      <h1>SALE IS LIVE NOW</h1>
+      <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+      <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+    </div>
+  </div> 
+  <!-- End Live Sale Section -->
+  <!-- 1st Product Slider -->
+<div class="m-3">
+    <h2>ShoppingX Bottomwears</h2>
+    <!-- Slider 1 -->
+    <div class="owl-carousel" id="slider1">
+     {% for b in bottomwear %}
+     <a href="{% url 'product-detail' b.id %}" class="btn">
+       <div class="item">
+         <img src="{{b.product_image}}" alt="" height="200px">
+         <h5>{{b.title}}</h5>
+         <h6>Rs.{{b.discounted_price}}<small class="fw-light text-decoration-line-through">{{b.selling_price}}</small></h6>
+       </div>
+     </a>
+     {% endfor %}
+   </div>
+   <!-- End 1st Product Slider -->
+   <!-- Payment Info Section -->
+<div class="container my-5">
+    <div class="row">
+     <div class="col-sm-3">
+      <div class="card mb-3">
+        <div class="card-body">
+        <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+        </div>
+      </div>
+     </div>
+     <div class="col-sm-3">
+      <div class="card mb-3">
+        <div class="card-body">
+         <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+        </div>
+      </div>
+     </div>
+     <div class="col-sm-3">
+      <div class="card mb-3">
+        <div class="card-body">
+         <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+        </div>
+      </div>
+     </div>
+     <div class="col-sm-3">
+      <div class="card mb-3">
+        <div class="card-body">
+         <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+        </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- End Payment Info Section -->
+   <!-- 2nd Product Slider -->
+<div class="mx-3">
+    <h2>Topwears</h2>
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider2">
+     {% for tp in topwears %}
+     <a href="{% url 'product-detail' tp.id %}" class="btn">
+       <div class="item">
+         <img src="{{tp.product_image}}" alt="" height="200px">
+         <h5>{{tp.title}}</h5>
+         <h6>Rs.{{tp.discounted_price}}<small class="fw-light text-decoration-line-through">{{tp.selling_price}}</small></h6>
+       </div>
+     </a>
+     {% endfor %}
+   </div>
+   <!-- End 2nd Product Slider -->
+   <!-- 3rd Product Slider -->
+<div class="mx-3">
+    <h2>Mobile Phones</h2>
+    <!-- Slider 3 -->
+    <div class="owl-carousel" id="slider2">
+     {% for m in mobiles %}
+     <a href="{% url 'product-detail' m.id %}" class="btn">
+       <div class="item">
+         <img src="{{m.product_image}}" alt="" height="200px">
+         <h5>{{m.title}}</h5>
+        <h6>Rs.{{m.discounted_price}}<small class="fw-light text-decoration-line-through">{{m.selling_price}}</small></h6>
+       </div>
+     </a>
+     {% endfor %}
+   </div>
+   <!-- End 3rd Product Slider -->
+  
+
+  <!-- Footer -->
+<footer class="container-fluid bg-dark text-center p-2 mt-5">
+    <small class="text-white">Copyright &copy; 2021 || Designed By shrikant || </small>
+    <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
+</footer> <!-- End Footer -->
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+<script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'app/js/all.min.js' %}"></script>
+<script src="{% static 'app/js/myscript.js' %}"></script>
+</body>
+</html>

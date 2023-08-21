@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% comment %} {% block main-content %} {% endcomment %}
+
+    {% comment %} <div class="d-flex flex-wrap">
+          <div class="col-md-3" class="filer-height">
+            <h4>Filter By Brand</h4>
+            <ul id="brand-filter">
+              <li class="brand-option active" data-brand="all">All</li>
+              <li class="brand-option" data-brand="brand1">Brand 1</li>
+              <li class="brand-option" data-brand="brand2">Brand 2</li>
+              <li class="brand-option" data-brand="brand3">Brand 3</li>
+            </ul>
+          </div> {% endcomment %}
+        {% comment %} <div class="row"> 
+      {% for m in mobiles %}    
+        <div class="col-3">
+          <a href="{% url 'product-detail' m.id %}" class="btn">
+            <img src="{{m.product_image.url}}" alt="" height="200px" width="200px">
+            <h1>{{m.brand}}</h1>
+            <h2>{{m.title}}</h2>
+            <h4>Rs. {{m.discount_price}} <small class="fw-light text-decoration-line-through">{{m.selling_price}}</small></h4>
+            {{m.description}}
+          </a>      
+        </div>
+      {% endfor %}
+  </div>
+{% endblock main-content %} {% endcomment %}
+{% block banner_slider %}
+  <main class="container mt-4">
+    <div class="row">
+      {% for i in mobiles %}
+        <div class="col-md-4">
+          <div class="card mb-3">
+          <a href="{% url 'product-detail' i.id %}">
+            <img src="{{i.product_image.url}}" class="card-img-top" alt="Item 2" height="300px" width="100px">
+          </a>
+            <div class="card-body">
+              <h1>{{i.brand}}</h1>
+              <h2>{{i.title}}</h2>
+              <h4>Rs.{{i.discounted_price}} <small class="fw-light text-decoration-line-through">{{i.selling_price}}</small></h4>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+       {% endfor %}
+{% endblock banner_slider %}

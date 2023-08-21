@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block banner_slider %}
+  <main class="container mt-4">
+    <div class="row">
+       {% for j in furniture %}
+        <div class="col-md-3">
+          <div class="card mb-3">
+          <a href="{% url 'product-detail' j.id %}">
+            <img src="{{j.product_image.url}}" class="card-img-top" alt="Item 2" height="300">
+          </a>
+            <div class="card-body">
+              <h4>{{j.brand}}</h4>
+              <h5>{{j.title}}</h5>
+              <h4>Rs.{{j.discounted_price}} <small class="fw-light text-decoration-line-through">{{j.selling_price}}</small></h4>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+       {% endfor %}
+      {% endblock banner_slider %}

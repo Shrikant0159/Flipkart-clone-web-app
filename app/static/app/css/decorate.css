@@ -1,0 +1,17 @@
+a.my-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: center; 
+  }
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  .hover-effect {
+    transition: color 0.3s; /* Smoothly transition the color change */
+  }
+  
+  .hover-effect:hover {
+    color: rgb(118, 226, 226); /* Change the text color to red on hover */
+  }
